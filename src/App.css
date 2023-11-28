@@ -73,12 +73,10 @@
   line-height: 11.11%; 
   min-width: 11.11%; 
   min-height: 11.11%; 
-  /* justify-content: space-evenly; */
   position: relative;
-  /* border-radius: 50%; */
   
   /* for testing only */
-  font-size: 200%;
+  font-size: 150%;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -71,10 +71,10 @@ function sudokuComponents() {
             className: "Cell",
             id: "board-" + counter
           },
-          createElement('p',  {
-                                className: "CellValue",
-                                id: "cell-" + counter
-                              })
+          // createElement('p',  {
+          //                       className: "CellValue",
+          //                       id: "cell-" + counter
+          //                     })
         );
         components.push(cell);
       }
@@ -86,10 +86,11 @@ function sudokuComponents() {
             className: "Cell Filled",
             id: "board-" + counter
           },
-          createElement('p',  {
-                                className: "CellValue",
-                                id: "cell-" + counter,
-                              }, sudokuPuzzle[i][j])
+          sudokuPuzzle[i][j]
+          // createElement('p',  {
+          //                       className: "CellValue",
+          //                       id: "cell-" + counter,
+          //                     }, sudokuPuzzle[i][j])
         );
         components.push(cellValued);
       }
