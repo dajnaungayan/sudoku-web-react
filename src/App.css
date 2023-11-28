@@ -1,0 +1,126 @@
+:root {
+  --sudoku-width: 70vh;
+  --sudoku-height: 70vh;
+  --sudoku-division: 11.11vh;
+  
+  /*https://www.schemecolor.com/orange-and-black.php*/
+  --accent-color1: #000000;
+  --accent-color2: #dad1d1;
+  --accent-color3: #f6b167;
+  --accent-color4: #f07900;
+  --accent-color5: #d35100;
+}
+
+.App {
+  background: var(--accent-color2);
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  /* justify-content: center;
+  align-items: center;
+  margin: auto; */
+}
+
+.divPuzzle {
+  width: var(--sudoku-width);
+  height: 100%;
+  /* background: white; */
+  margin-left: 50%;
+  transform: translateX(calc( -1 * var(--sudoku-width) / 2 ));
+  
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.Sudoku {
+  position: absolute; 
+  width: var(--sudoku-width);
+  height: var(--sudoku-height);
+  background: var(--accent-color1);
+  z-index: 1;
+  /* margin: auto; */
+  /* left: 50%; */
+  top: 50%;
+  transform: translate(0, -60%);
+  border-radius: 5%;
+  /* border: 1vh solid var(--accent-color1); */
+  box-shadow: 0px 0px 0px 1vh var(--accent-color1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Cell
+{
+  background: var(--accent-color3);
+  background-clip: padding-box;
+  box-shadow: 0px 0px 0px 1px var(--accent-color5);
+  z-index: 2;
+  width: 11.11%; 
+  height: 11.11%;  
+  line-height: 11.11%; 
+  min-width: 11.11%; 
+  min-height: 11.11%; 
+  /* justify-content: space-evenly; */
+  position: relative;
+  /* border-radius: 50%; */
+  
+  /* for testing only */
+  font-size: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.CellValue {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  margin: auto;
+  content: "";
+}
+
+.vertical-1 {
+  position: absolute;
+  height: 100%;
+  left: 33%;
+  z-index: 3;
+  /* background: white; */
+  border: 3px solid var(--accent-color1);
+}
+
+.vertical-2 {
+  position: absolute;
+  height: 100%;
+  left: 66%;
+  z-index: 3;
+  /* background: white; */
+  border: 3px solid var(--accent-color1);
+}
+
+.horizontal-1 {
+  position: absolute;
+  width: 100%;
+  top: 33%;
+  z-index: 3;
+  /* background: white; */
+  border: 3px solid var(--accent-color1);
+}
+
+.horizontal-2 {
+  position: absolute;
+  width: 100%;
+  top: 66%;
+  z-index: 3;
+  /* background: white; */
+  border: 3px solid var(--accent-color1);
+}
