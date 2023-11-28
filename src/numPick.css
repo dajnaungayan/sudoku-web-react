@@ -25,7 +25,8 @@
     flex-wrap: wrap;
     /* opacity: 50%; */
 
-    margin-Top: 120%;
+    /* transform: translate(0, 120%); */
+    margin-Top: 85vh;
 
     /* visibility: hidden; */
 }

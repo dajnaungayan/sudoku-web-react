@@ -1,7 +1,7 @@
 import './App.css';
 import { createElement } from 'react';
 import './numPick.css';
-const focusColorOnly = 'rgb(255, 255, 0)';
+const focusColorOnly = 'rgb(243, 191, 137)';
 const focusColor = focusColorOnly + ' none repeat scroll 0% 0% / auto padding-box border-box';
 
 var sudokuPuzzle = [['0', '4', '0', '6', '0', '0', '9', '0', '3'],
@@ -49,8 +49,10 @@ function divPuzzle(){
   return createElement(
     'div',
     { className: 'divPuzzle'},
-    createElement(sudokuComponents, { className: 'Sudoku'}),
-    createElement( numPick, {className: 'numPick-container'})
+    null,
+    createElement( numPick, {className: 'numPick-container'}),
+    createElement( sudokuComponents, { className: 'Sudoku'}),
+
   );
 }
 
@@ -97,7 +99,9 @@ function sudokuComponents() {
 
   return createElement(
     'div',
-    { className: 'Sudoku'},
+    { 
+      className: 'Sudoku'
+    },
     components,
     createElement('div',  { 
       className: 'vertical-1'
@@ -124,14 +128,6 @@ function numPick() {
       {
         className: "Choice",
         id: "picker-" + k,
-        // onMouseOver: focusChoice,
-        // onMouseOut: unfocusChoice
-        // onMouseOver: () => {
-        //   this.animate({
-        //     transform: 'scale(0.9)',
-        //     zIndex: 2
-        //   }, {duration: 200, fill: 'forwards'});
-        // }
       },
       sudokuChoices[k]
     );
@@ -155,10 +151,11 @@ window.onmousedown = function (e)
   if( element === null)
   {
     // chooser[0].style.visibility = 'hidden';
+    unfocusCell(editingCell);
     return;
   }
 
-  if(element.getAttribute('id').includes('picker'))
+  if(element.getAttribute('id').includes('picker') && (editingCell != null))
   {
     editingCell.innerHTML = element.innerHTML;
     unfocusCell(editingCell);
@@ -230,6 +227,10 @@ function focusCell(element)
 
 function unfocusCell(element)
 {
+  if(element === null)
+  {
+    return;
+  }
   element.animate({
     background: 'var(--accent-color3)'
   }, {duration: 200, fill: 'forwards'});
@@ -237,17 +238,23 @@ function unfocusCell(element)
 }
 
 function pickEditingCell(objectElement, mouseEvent) {
-  // var chooser = document.getElementsByClassName('numPick-container');
 
   if( !(objectElement === null) && (Object.is(objectElement.className, "Cell")))
   {
     if(editingCell != null)
     {
       unfocusCell(editingCell);
+      editingCell = null;
     }
     focusCell(objectElement);
   }
-  else{
+  else if( !(objectElement === null) && (Object.is(objectElement.className, "Cell Filled")))
+  {
+    unfocusCell(editingCell);
+    editingCell = null;
+  }
+  else
+  {
     editingCell = null;
   }
 }

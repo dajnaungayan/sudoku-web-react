@@ -1,6 +1,14 @@
 :root {
-  --sudoku-width: 70vh;
-  --sudoku-height: 70vh;
+  /* --sudoku-main-size: min( 100vh, 100vw); */
+  /* --sudoku-main-size: 100px; */
+  /* --sudoku-width: calc(70% * var(--sudoku-main-size));
+  --sudoku-height: calc(70% * var(--sudoku-main-size)); */
+  /* --sudoku-width: 70vh;
+  --sudoku-height: 70vh; */
+
+  --sudoku-width: 70%;
+  --sudoku-height: 70%;
+  /* --sudoku-division: calc(11.11% * var(--sudoku-main-size)); */
   --sudoku-division: 11.11vh;
   
   /*https://www.schemecolor.com/orange-and-black.php*/
@@ -17,18 +25,17 @@
   height: 100vh;
   position: relative;
   display: flex;
-  /* justify-content: center;
-  align-items: center;
+  justify-content: center;
+  /* align-items: center;
   margin: auto; */
 }
 
 .divPuzzle {
-  width: var(--sudoku-width);
+
+  max-width: 70%;
   height: 100%;
-  /* background: white; */
-  margin-left: 50%;
-  transform: translateX(calc( -1 * var(--sudoku-width) / 2 ));
   
+  position: absolute;
   /* overflow: hidden; */
   display: flex;
   flex-direction: row;
@@ -38,16 +45,17 @@
 
 .Sudoku {
   position: absolute; 
-  width: var(--sudoku-width);
-  height: var(--sudoku-height);
+  width: 100%;
+  /* height: var(--sudoku-height); */
+  aspect-ratio: 1/1;
+  
   background: var(--accent-color1);
   z-index: 1;
-  /* margin: auto; */
-  /* left: 50%; */
-  top: 50%;
+  
+  margin-Top: 50vh;
   transform: translate(0, -60%);
   border-radius: 5%;
-  /* border: 1vh solid var(--accent-color1); */
+  
   box-shadow: 0px 0px 0px 1vh var(--accent-color1);
   overflow: hidden;
   display: flex;
