@@ -28,11 +28,12 @@
   justify-content: center;
   /* align-items: center;
   margin: auto; */
+  overflow: hidden;
 }
 
 .divPuzzle {
 
-  max-width: 70%;
+  max-width: 90%;
   height: 100%;
   
   position: absolute;
@@ -40,6 +41,9 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+  /* visibility: hidden; */
+  opacity: 0%;
 
 }
 
@@ -94,6 +98,10 @@
   content: "";
 }
 
+.Answer {
+  font-weight: bold;
+}
+
 .vertical-1 {
   position: absolute;
   height: 100%;
@@ -128,4 +136,27 @@
   z-index: 3;
   /* background: white; */
   border: 3px solid var(--accent-color1);
+}
+
+.levelChooseContainer {
+  width: 100%;
+  height: 100%;
+  background: var(--accent-color2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.level {
+  width: 15%;
+  height: 15%;
+  background: var(--accent-color3);
+  margin: 20px;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
